@@ -1,0 +1,20 @@
+services:
+  memories:
+    build: .
+    # Run the script from the mounted folder with bash, so editing
+    # docker/build.sh or tools/ never needs an image rebuild.
+    entrypoint: ["bash", "/usr/local/bin/build-memories"]
+    command: ["apk"]
+    volumes:
+      - ./lib:/src/lib:ro            # your Dart code (edit freely)
+      - ./assets:/src/assets:ro      # logo + images
+      - ./tools:/src/tools:ro        # patch scripts
+      - ./docker/build.sh:/usr/local/bin/build-memories:ro
+      - ./output:/out                # memories.apk appears here
+      - flutter_project:/work        # generated android/ios folders (cached)
+      - pub_cache:/root/.pub-cache   # package cache
+      - gradle_cache:/root/.gradle   # Android build cache
+volumes:
+  flutter_project:
+  pub_cache:
+  gradle_cache:

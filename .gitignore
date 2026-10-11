@@ -1,0 +1,35 @@
+# Flutter generated files
+.dart_tool/
+.packages
+.pub/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Generated APKs and build output
+output/*.apk
+
+# Android and Gradle generated files
+.gradle/
+**/android/.gradle/
+**/android/local.properties
+**/android/key.properties
+**/android/*.jks
+**/android/*.keystore
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+
+# Environment files and secrets
+.env
+.env.*
+!.env.example
+
+# Local backups, not required in GitHub
+version backups/
+
+# Operating system files
+.DS_Store
+Thumbs.db
