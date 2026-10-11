@@ -429,7 +429,7 @@ class _CreateMemoryScreenState extends State<CreateMemoryScreen> {
                         child: Text(
                           hasLocation
                               ? 'Pin set  ·  ${_lat!.toStringAsFixed(4)}, ${_lng!.toStringAsFixed(4)}'
-                              : 'Type a place below, or use the buttons',
+                              : 'Type a place below or use the buttons',
                           style: const TextStyle(
                               fontSize: 14, color: AppColors.textSecondary),
                         ),

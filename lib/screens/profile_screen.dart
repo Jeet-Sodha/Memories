@@ -308,12 +308,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 icon: Icons.lock_outline,
                 label: 'Privacy',
                 onTap: () => _info('Privacy',
-                    'Your memories are private. Only you can see your photos, videos and voice notes. They are stored in private storage and protected by your account.')),
+                    'Your memories are private Only you can see your photos, videos and voice notes.They are stored in private storage and protected by your account.')),
             _Row(
                 icon: Icons.info_outline,
                 label: 'About Memories',
                 onTap: () => _info('About Memories',
-                    'Memories — your life, mapped.\nA private, location-based memory journal.')),
+                    'Memories → your life, mapped\nA private, location-based memory journal.')),
             const SizedBox(height: 10),
             OutlinedButton.icon(
               onPressed: _logout,
