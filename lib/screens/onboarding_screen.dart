@@ -19,8 +19,9 @@ class _Page {
   final IconData chipAIcon;
   final String chipB;
   final IconData chipBIcon;
+  final String image;
   const _Page(this.title, this.body, this.icon, this.chipA, this.chipAIcon,
-      this.chipB, this.chipBIcon);
+      this.chipB, this.chipBIcon, this.image);
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
@@ -36,6 +37,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       Icons.place,
       '18 Aug 2026',
       Icons.calendar_today,
+      'assets/welcome_1.jpg',
     ),
     _Page(
       'Every memory has an address.',
@@ -45,6 +47,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       Icons.place,
       '5 photos · 1 video',
       Icons.collections_outlined,
+      'assets/welcome_2.jpg',
     ),
     _Page(
       'Relive it as a story.',
@@ -54,6 +57,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       Icons.lock_outline,
       'View Story',
       Icons.play_arrow,
+      'assets/welcome_3.jpg',
     ),
   ];
 
@@ -177,6 +181,7 @@ class _PageView extends StatelessWidget {
                       child: Transform.rotate(
                         angle: 0.05,
                         child: Container(
+                          clipBehavior: Clip.antiAlias,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(32),
                             gradient: const LinearGradient(
@@ -186,8 +191,15 @@ class _PageView extends StatelessWidget {
                             ),
                             border: Border.all(color: AppColors.line),
                           ),
-                          child: Icon(page.icon,
-                              size: 72, color: AppColors.accentLight),
+                          child: Image.asset(
+                            page.image,
+                            fit: BoxFit.cover,
+                            width: double.infinity,
+                            height: double.infinity,
+                            // If a photo is ever missing, show the old icon.
+                            errorBuilder: (_, __, ___) => Icon(page.icon,
+                                size: 72, color: AppColors.accentLight),
+                          ),
                         ),
                       ),
                     ),
